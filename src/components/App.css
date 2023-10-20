@@ -1,0 +1,75 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+header {
+    background-color: #9CA3AF;
+    color: white;
+    font-size: 60px;
+}
+th {
+    background-color: #9CA3AF;
+    color: white;
+}
+
+input {
+    height: 30px;
+}
+.addbutton {
+    margin: 20px;
+    padding: 5px  30px;
+    background-color: #9CA3AF;
+    border-radius: 10%;
+    color: white;
+}
+.addbutton:hover{
+    opacity: 0.7;
+    transition: .5s;
+}
+.contents {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: 50px;
+}
+
+#delete {
+    color: blue;
+}
+
+.AllDelete {
+    background-color: red;
+    color: white;
+    border-radius: 10%;
+    position: absolute;
+    top: -30px;
+}
+
+.line1 {
+    width: 60px;
+    height: 20px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.line2 {
+    height: 20px;
+    width: 150px;
+    font-size: 15px;
+}
+
+.line3 {
+    height: 20px;
+    width: 600px;
+    font-size: 15px;
+}
+
+.line4 {
+    height: 20px;
+    width: 90px;
+    font-size: 15px;
+}
