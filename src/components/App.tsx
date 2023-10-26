@@ -1,10 +1,18 @@
 import "./App.css";
+import PreButton from "./PreButton";
 
 function App() {
 	return (
-		<header className="bg-[blue] text-center p-[10px] text-2xl text-[#F9FAFB]">
-			Title
-		</header>
+		<div>
+			<header >
+				Title
+			</header>
+			<main>
+				<div className="caption">都道府県</div>
+				<PreButton />
+			</main>
+		</div>
+
 	);
 }
 
