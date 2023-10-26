@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { LineChart, XAxis, YAxis, CartesianGrid, Line } from "recharts";
+import axios from "axios";
+import { get } from "http";
+import { isConstructorDeclaration } from "typescript";
 
 function PreButton() {
-    const data = [[10,20],[20,40]];
+
+    const[PreDatas, setPreData] = useState([1,2]);
+
+
+    function AllPre() {
+        axios.get("https://opendata.resas-portal.go.jp/api/v1/prefectures", { headers: { "X-API-KEY": "rMpQU6kyxGmETmpOuebxZzmlESj09itPW5d2fMkW" } })
+            .then(function (response) {
+                console.log(response.data.result);
+                setPreData(response.data.result);
+            })
+            .catch(function (error) {
+                console.log("error");
+            });
+    }
+
     return (
         <div>
-            <input type="checkbox" name="" id="" />
-            <span>aaa</span>
-            <LineChart width={500} height={300} data={data}>
-                <XAxis dataKey="name" />
-                <YAxis />
-                <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-                <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
-            </LineChart>
+            <button onClick={AllPre}>Go</button>
+
         </div>
     );
 }
