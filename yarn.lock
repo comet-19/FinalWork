@@ -1894,6 +1894,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/js@npm:8.52.0":
+  version: 8.52.0
+  resolution: "@eslint/js@npm:8.52.0"
+  checksum: cdcf8f9b54994fe1a5dc086c714a75dca5fe5899f9b362986abd12b3b5bec9c9755f7608e663ce072edd3fa3910cc752afef8d149fda0288a477652b65865a1c
+  languageName: node
+  linkType: hard
+
 "@eslint/js@npm:^8.47.0":
   version: 8.47.0
   resolution: "@eslint/js@npm:8.47.0"
@@ -1912,6 +1919,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@humanwhocodes/config-array@npm:^0.11.13":
+  version: 0.11.13
+  resolution: "@humanwhocodes/config-array@npm:0.11.13"
+  dependencies:
+    "@humanwhocodes/object-schema": "npm:^2.0.1"
+    debug: "npm:^4.1.1"
+    minimatch: "npm:^3.0.5"
+  checksum: d76ca802d853366094d0e98ff0d0994117fc8eff96649cd357b15e469e428228f597cd2e929d54ab089051684949955f16ee905bb19f7b2f0446fb377157be7a
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/module-importer@npm:^1.0.1":
   version: 1.0.1
   resolution: "@humanwhocodes/module-importer@npm:1.0.1"
@@ -1923,6 +1941,13 @@ __metadata:
   version: 1.2.1
   resolution: "@humanwhocodes/object-schema@npm:1.2.1"
   checksum: c3c35fdb70c04a569278351c75553e293ae339684ed75895edc79facc7276e351115786946658d78133130c0cca80e57e2203bc07f8fa7fe7980300e8deef7db
+  languageName: node
+  linkType: hard
+
+"@humanwhocodes/object-schema@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@humanwhocodes/object-schema@npm:2.0.1"
+  checksum: 9dba24e59fdb4041829d92b693aacb778add3b6f612aaa9c0774f3b650c11a378cc64f042a59da85c11dae33df456580a3c36837b953541aed6ff94294f97fac
   languageName: node
   linkType: hard
 
@@ -2672,6 +2697,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/add@npm:^2":
+  version: 2.0.1
+  resolution: "@types/add@npm:2.0.1"
+  checksum: 284700ff6f0cd541ed2dfa73cd9491b7893fb7ec7f4662329f676b549b10ba10729de7779ffb0d42722b404d62d3d52e09d5d5572c1260f72d522b159fbae432
+  languageName: node
+  linkType: hard
+
 "@types/aria-query@npm:^5.0.1":
   version: 5.0.1
   resolution: "@types/aria-query@npm:5.0.1"
@@ -2775,6 +2807,16 @@ __metadata:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
   checksum: 3c402215f7f495f9267a51fecd6a6d056eb8b3b031a1c472286b7d23a397257327eb03712befa7da60614dd63d31235d27dbc5c586b6a408798dafb8ee0c5eb2
+  languageName: node
+  linkType: hard
+
+"@types/eslint@npm:^8":
+  version: 8.44.6
+  resolution: "@types/eslint@npm:8.44.6"
+  dependencies:
+    "@types/estree": "npm:*"
+    "@types/json-schema": "npm:*"
+  checksum: fc449107eb186bdc5d30149bbcb4e673af8530afdeacca3b89f14deefcbfc67463157d6a81b42cd9df92ddeafda5351853d13310ff7ac6ab0d9769ac7cc0cc3a
   languageName: node
   linkType: hard
 
@@ -3231,6 +3273,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ungap/structured-clone@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@ungap/structured-clone@npm:1.2.0"
+  checksum: 8209c937cb39119f44eb63cf90c0b73e7c754209a6411c707be08e50e29ee81356dca1a848a405c8bdeebfe2f5e4f831ad310ae1689eeef65e7445c090c6657d
+  languageName: node
+  linkType: hard
+
 "@webassemblyjs/ast@npm:1.11.6, @webassemblyjs/ast@npm:^1.11.5":
   version: 1.11.6
   resolution: "@webassemblyjs/ast@npm:1.11.6"
@@ -3470,6 +3519,13 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: deaeebfbea6e40f6c0e1070e9b0e16e76ba484de54cbd735914d1d41d19169a450de8630b7a3a0c4e271a3b0c0b075a3427ad1a40d8a69f8747c0e8cb02ee3e2
+  languageName: node
+  linkType: hard
+
+"add@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "add@npm:2.0.6"
+  checksum: 6b21d5f2e58cf5e15d56cc6f9ebce04f04f4c33ae25f09d600ddacf8df00036ba521f17feb1b3f81307b7c6d2ef0bed8b511a0f86f062eb90c2f909b48b588ae
   languageName: node
   linkType: hard
 
@@ -5993,6 +6049,54 @@ __metadata:
     eslint: ^7.0.0 || ^8.0.0
     webpack: ^5.0.0
   checksum: e2e11e6743df9e65e73f4d0b6de832a47a17568b2a4b03b86acfa3458bb2db50a7809c835b64613320f5fd5e1b1395dd2abe08d7f5c466c77234c500a087cad2
+  languageName: node
+  linkType: hard
+
+"eslint@npm:^8":
+  version: 8.52.0
+  resolution: "eslint@npm:8.52.0"
+  dependencies:
+    "@eslint-community/eslint-utils": "npm:^4.2.0"
+    "@eslint-community/regexpp": "npm:^4.6.1"
+    "@eslint/eslintrc": "npm:^2.1.2"
+    "@eslint/js": "npm:8.52.0"
+    "@humanwhocodes/config-array": "npm:^0.11.13"
+    "@humanwhocodes/module-importer": "npm:^1.0.1"
+    "@nodelib/fs.walk": "npm:^1.2.8"
+    "@ungap/structured-clone": "npm:^1.2.0"
+    ajv: "npm:^6.12.4"
+    chalk: "npm:^4.0.0"
+    cross-spawn: "npm:^7.0.2"
+    debug: "npm:^4.3.2"
+    doctrine: "npm:^3.0.0"
+    escape-string-regexp: "npm:^4.0.0"
+    eslint-scope: "npm:^7.2.2"
+    eslint-visitor-keys: "npm:^3.4.3"
+    espree: "npm:^9.6.1"
+    esquery: "npm:^1.4.2"
+    esutils: "npm:^2.0.2"
+    fast-deep-equal: "npm:^3.1.3"
+    file-entry-cache: "npm:^6.0.1"
+    find-up: "npm:^5.0.0"
+    glob-parent: "npm:^6.0.2"
+    globals: "npm:^13.19.0"
+    graphemer: "npm:^1.4.0"
+    ignore: "npm:^5.2.0"
+    imurmurhash: "npm:^0.1.4"
+    is-glob: "npm:^4.0.0"
+    is-path-inside: "npm:^3.0.3"
+    js-yaml: "npm:^4.1.0"
+    json-stable-stringify-without-jsonify: "npm:^1.0.1"
+    levn: "npm:^0.4.1"
+    lodash.merge: "npm:^4.6.2"
+    minimatch: "npm:^3.1.2"
+    natural-compare: "npm:^1.4.0"
+    optionator: "npm:^0.9.3"
+    strip-ansi: "npm:^6.0.1"
+    text-table: "npm:^0.2.0"
+  bin:
+    eslint: bin/eslint.js
+  checksum: 9269b32ccf6e9947d994f871888d5b541da4a8539160ee19d80ecac0c70c51a7d3a7c111a58cf1adf81f093a7c1b5564edefa5c6dbe29b1df9c9f3e30700af30
   languageName: node
   linkType: hard
 
@@ -10531,6 +10635,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^2":
+  version: 2.8.8
+  resolution: "prettier@npm:2.8.8"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 463ea8f9a0946cd5b828d8cf27bd8b567345cf02f56562d5ecde198b91f47a76b7ac9eae0facd247ace70e927143af6135e8cf411986b8cb8478784a4d6d724a
+  languageName: node
+  linkType: hard
+
 "pretty-bytes@npm:^5.3.0, pretty-bytes@npm:^5.4.1":
   version: 5.6.0
   resolution: "pretty-bytes@npm:5.6.0"
@@ -12403,12 +12516,17 @@ __metadata:
     "@testing-library/jest-dom": "npm:^5.17.0"
     "@testing-library/react": "npm:^13.4.0"
     "@testing-library/user-event": "npm:^13.5.0"
+    "@types/add": "npm:^2"
+    "@types/eslint": "npm:^8"
     "@types/jest": "npm:^27.5.2"
     "@types/node": "npm:^16.18.44"
     "@types/react": "npm:^18.2.21"
     "@types/react-dom": "npm:^18.2.7"
+    add: "npm:^2.0.6"
     autoprefixer: "npm:^10.4.15"
+    eslint: "npm:^8"
     postcss: "npm:^8.4.28"
+    prettier: "npm:^2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-scripts: "npm:5.0.1"
