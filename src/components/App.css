@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.frame {
+    margin: 20px;
+}
+
 header {
     border: 1px solid black;
     background-color: blue;

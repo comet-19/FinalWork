@@ -8,7 +8,6 @@ function App() {
 				Title
 			</header>
 			<main>
-				<div className="caption">都道府県</div>
 				<PreButton />
 			</main>
 		</div>
