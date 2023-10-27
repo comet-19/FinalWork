@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .frame {
-    margin: 20px;
+    margin: 10px;
 }
 
 header {
@@ -29,4 +29,12 @@ header {
 .PreButton {
     width: 100px;
     padding: 10px;
+}
+
+.ChooseTheme {
+    margin: 20px;
+}
+
+.ChooseTheme button {
+    margin: 20px;
 }

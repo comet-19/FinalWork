@@ -1,10 +1,10 @@
 import { LineChart, XAxis, YAxis, CartesianGrid, Line } from "recharts";
 
 
-function CreateCharts() {
+function CreateCharts(props:any) {
     return (
         <div>
-            <LineChart width={500} height={300} data={[1,2]}>
+            <LineChart width={500} height={300} data={props.data}>
                 <XAxis dataKey="name" />
                 <YAxis />
                 <CartesianGrid stroke="#eee" strokeDasharray="5 5" />

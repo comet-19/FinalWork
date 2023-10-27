@@ -11,6 +11,12 @@ function PreButton() {
     const [PreNamedatas, setPreNamedatas] = useState<string[]>([]);
     const PrePopdatas: any[] = [];
 
+    const ALLPop: any[] = [];
+    const YoungPop: any[] = [];
+    const WorkPop: any[] = [];;
+    const OldPop:any[] = [];
+
+
 
     useEffect(() => {
         axios.get("https://opendata.resas-portal.go.jp/api/v1/prefectures", { headers: { "X-API-KEY": "FsEmsGAEGJ4kkz69wBsMpSMNe6VgZhMYeWSqd3fT" } })
@@ -30,18 +36,26 @@ function PreButton() {
 
     useEffect(() => {
 
-        async function GetPopulation () {
-            for (let i = 1; i <= 47; i ++) {
+        async function GetPopulation() {
+            for (let i = 1; i <= 47; i++) {
                 const tmpdata = await axios.get(`https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${i}`, { headers: { "X-API-KEY": "FsEmsGAEGJ4kkz69wBsMpSMNe6VgZhMYeWSqd3fT" } });
                 if (tmpdata) {
-                    PrePopdatas.push(tmpdata);
+                    PrePopdatas.push(tmpdata.data.result.data);
+                    ALLPop.push(tmpdata.data.result.data[0]);
+                    YoungPop.push(tmpdata.data.result.data[1]);
+                    WorkPop.push(tmpdata.data.result.data[2]);
+                    OldPop.push(tmpdata.data.result.data[3]);
                 }
-                console.log(tmpdata);
             }
-
+            console.log(ALLPop);
+            console.log(YoungPop);
+            console.log(WorkPop);
+            console.log(OldPop);
         }
 
         GetPopulation();
+
+        
 
     }, [])
 
@@ -62,15 +76,15 @@ function PreButton() {
 
             <div className="ViewChartsBox">
                 {
-                    <CreateCharts />
+                    <CreateCharts data={ALLPop[0]}/>
                 }
 
             </div>
             <div className="ChooseTheme">
-                <button>総人口</button>
-                <button>年少人口</button>
-                <button>生産年齢人口</button>
-                <button>老年人口</button>
+                <button className="Theme1">総人口</button>
+                <button className="Theme2">年少人口</button>
+                <button className="Theme3">生産年齢人口</button>
+                <button className="Theme4">老年人口</button>
             </div>
 
         </div>
