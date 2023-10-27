@@ -12,28 +12,26 @@ function PreButton() {
     const [PreNamedatas, setPreNamedatas] = useState<string[]>([]);
 
 
-    function AllPre() {
-        axios.get("https://opendata.resas-portal.go.jp/api/v1/prefectures", { headers: { "X-API-KEY": "rMpQU6kyxGmETmpOuebxZzmlESj09itPW5d2fMkW" } })
-            .then(function (response) {
-                console.log(response.data.result);
-                Predatas = response.data.result;
-                const getPreNameDatas = Predatas.map((item:any) => item["prefName"]);
-                setPreNamedatas(getPreNameDatas);
-            })
-            .catch(function (error) {
-                console.log("error");
-            });
-    }
+    axios.get("https://opendata.resas-portal.go.jp/api/v1/prefectures", { headers: { "X-API-KEY": "rMpQU6kyxGmETmpOuebxZzmlESj09itPW5d2fMkW" } })
+        .then(function (response) {
+            console.log(response.data.result);
+            Predatas = response.data.result;
+            const getPreNameDatas = Predatas.map((item: any) => item["prefName"]);
+            setPreNamedatas(getPreNameDatas);
+        })
+        .catch(function (error) {
+            console.log("error");
+        });
 
     return (
         <div>
-            <button onClick={AllPre}>Go</button>
+            <button>Go</button>
 
             <div className="PreCheckBox">
                 {
-                    PreNamedatas.map((PreName, index) =>  {
+                    PreNamedatas.map((PreName, index) => {
                         return (
-                            <OneButton prename={PreName} key={index}/>
+                            <OneButton prename={PreName} key={index} />
                         )
                     })
                 }
