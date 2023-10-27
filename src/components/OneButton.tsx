@@ -1,7 +1,7 @@
 
 function OneButton (props:any) {
     return (
-        <div>
+        <div className="PreButton">
             <input type="checkbox" name="" id="" /><span>{props.prename}</span>
         </div>
     )

@@ -39,6 +39,16 @@ function PreButton() {
                 }
             </div>
 
+            <div className="ViewChartsBox">
+
+            </div>
+            <div className="ChooseTheme">
+                <button>総人口</button>
+                <button>年少人口</button>
+                <button>生産年齢人口</button>
+                <button>老年人口</button>
+            </div>
+
         </div>
     );
 }

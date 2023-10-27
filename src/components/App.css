@@ -13,3 +13,13 @@ header {
     width: 100px;
     text-align: center;
 }
+
+.PreCheckBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.PreButton {
+    width: 100px;
+    padding: 10px;
+}
