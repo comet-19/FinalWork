@@ -12,11 +12,14 @@ header {
     border: 1px solid black;
     width: 100px;
     text-align: center;
+    margin: 10px 20px;
+    background-color: aqua;
 }
 
 .PreCheckBox {
     display: flex;
     flex-wrap: wrap;
+    margin: 10px 20px;
 }
 
 .PreButton {

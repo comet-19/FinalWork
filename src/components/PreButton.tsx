@@ -25,8 +25,6 @@ function PreButton() {
 
     return (
         <div>
-            <button>Go</button>
-
             <div className="PreCheckBox">
                 {
                     PreNamedatas.map((PreName, index) => {
