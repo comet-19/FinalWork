@@ -14,9 +14,10 @@ function PreButton() {
     const ALLPop: any[] = [];
     const YoungPop: any[] = [];
     const WorkPop: any[] = [];;
-    const OldPop:any[] = [];
+    const OldPop: any[] = [];
 
     const [nowTheme, setnowTheme] = useState("総人口");
+    const [nowstate, setstate] = useState("loading");
 
 
 
@@ -54,40 +55,63 @@ function PreButton() {
             console.log(WorkPop);
             console.log(OldPop);
 
+            setstate("complete")
+
 
         }
 
         GetPopulation();
 
-    
+
     }, [])
 
+    function screenview() {
+        if (nowstate == "loading") {
+            return (
+                <h1>Loading</h1>
+            );
+        }
+        else {
 
+            return (
+                <div>
+                    <div className="frame">
+                        <div className="caption">都道府県</div>
+                        <div className="PreCheckBox">
+                            {
+                                PreNamedatas.map((PreName, index) => {
+                                    return (
+                                        <OneButton prename={PreName} key={index} />
+                                    )
+                                })
+                            }
+                        </div>
+
+                        <CreateCharts data={ALLPop[0]} />
+
+                        <div>現在表示しているのは{nowTheme}です。</div>
+
+                        <div className="ChooseTheme">
+                            <button className="Theme1" onClick={() => setnowTheme("総人口")}>総人口</button>
+                            <button className="Theme2" onClick={() => setnowTheme("年少人口")}>年少人口</button>
+                            <button className="Theme3" onClick={() => setnowTheme("生産年齢人口")}>生産年齢人口</button>
+                            <button className="Theme4" onClick={() => setnowTheme("老年人口")}>老年人口</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            );
+
+        }
+    }
 
     return (
-        <div className="frame">
-            <div className="caption">都道府県</div>
-            <div className="PreCheckBox">
-                {
-                    PreNamedatas.map((PreName, index) => {
-                        return (
-                            <OneButton prename={PreName} key={index} />
-                        )
-                    })
-                }
-            </div>
 
-
-            <div>現在表示しているのは{nowTheme}です。</div>
-
-            <div className="ChooseTheme">
-                <button className="Theme1" onClick={() => setnowTheme("総人口")}>総人口</button>
-                <button className="Theme2" onClick={() => setnowTheme("年少人口")}>年少人口</button>
-                <button className="Theme3" onClick={() => setnowTheme("生産年齢人口")}>生産年齢人口</button>
-                <button className="Theme4" onClick={() => setnowTheme("老年人口")}>老年人口</button>
-            </div>
-
+        <div>
+            {screenview()}
         </div>
+
     );
 }
 
