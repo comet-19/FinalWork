@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { get } from "http";
-import { isConstructorDeclaration } from "typescript";
 import OneButton from "./OneButton";
 import CreateCharts from "./CreateCharts";
 
@@ -11,10 +9,12 @@ function PreButton() {
     const [PreNamedatas, setPreNamedatas] = useState<string[]>([]);
     const PrePopdatas: any[] = [];
 
-    const ALLPop: any[] = [];
-    const YoungPop: any[] = [];
-    const WorkPop: any[] = [];;
-    const OldPop: any[] = [];
+    const [ALLPop, setALLPop] = useState<Array<any>>([]);
+
+    const tmpALLPop: any[] = [];
+    const tmpYoungPop: any[] = [];
+    const tmpWorkPop: any[] = [];;
+    const tmpOldPop: any[] = [];
 
     const [nowTheme, setnowTheme] = useState("総人口");
     const [nowstate, setstate] = useState("loading");
@@ -43,17 +43,17 @@ function PreButton() {
             for (let i = 1; i <= 47; i++) {
                 const tmpdata = await axios.get(`https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${i}`, { headers: { "X-API-KEY": "FsEmsGAEGJ4kkz69wBsMpSMNe6VgZhMYeWSqd3fT" } });
                 if (tmpdata) {
+                    setALLPop([...ALLPop, { label: "総人口", data: tmpdata.data.result.data[0] }]);
                     PrePopdatas.push(tmpdata.data.result.data);
-                    ALLPop.push(tmpdata.data.result.data[0]);
-                    YoungPop.push(tmpdata.data.result.data[1]);
-                    WorkPop.push(tmpdata.data.result.data[2]);
-                    OldPop.push(tmpdata.data.result.data[3]);
+                    tmpALLPop.push(tmpdata.data.result.data[0]);
+                    tmpYoungPop.push(tmpdata.data.result.data[1]);
+                    tmpWorkPop.push(tmpdata.data.result.data[2]);
+                    tmpOldPop.push(tmpdata.data.result.data[3]);
                 }
             }
-            console.log(ALLPop);
-            console.log(YoungPop);
-            console.log(WorkPop);
-            console.log(OldPop);
+
+            setALLPop(tmpALLPop);
+            setALLPop(tmpALLPop);
 
             setstate("complete")
 
@@ -66,7 +66,7 @@ function PreButton() {
     }, [])
 
     function screenview() {
-        if (nowstate == "loading") {
+        if (nowstate === "loading") {
             return (
                 <h1>Loading</h1>
             );
@@ -86,8 +86,20 @@ function PreButton() {
                                 })
                             }
                         </div>
+                        <div>
+                            {
+                                ALLPop.map((ALLpop) => {
+                                    console.log(ALLpop);
+                                    console.log(ALLpop.data);
+                                    console.log(ALLpop.data);
+                                    return (
+                                        <CreateCharts data={ALLpop.data} />
+                                    )
+                                })
+                            }
+                        </div>
 
-                        <CreateCharts data={ALLPop[0]} />
+
 
                         <div>現在表示しているのは{nowTheme}です。</div>
 
