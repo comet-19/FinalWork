@@ -16,6 +16,8 @@ function PreButton() {
     const WorkPop: any[] = [];;
     const OldPop:any[] = [];
 
+    const [nowTheme, setnowTheme] = useState("総人口");
+
 
 
     useEffect(() => {
@@ -51,12 +53,13 @@ function PreButton() {
             console.log(YoungPop);
             console.log(WorkPop);
             console.log(OldPop);
+
+
         }
 
         GetPopulation();
 
-        
-
+    
     }, [])
 
 
@@ -74,17 +77,14 @@ function PreButton() {
                 }
             </div>
 
-            <div className="ViewChartsBox">
-                {
-                    <CreateCharts data={ALLPop[0]}/>
-                }
 
-            </div>
+            <div>現在表示しているのは{nowTheme}です。</div>
+
             <div className="ChooseTheme">
-                <button className="Theme1">総人口</button>
-                <button className="Theme2">年少人口</button>
-                <button className="Theme3">生産年齢人口</button>
-                <button className="Theme4">老年人口</button>
+                <button className="Theme1" onClick={() => setnowTheme("総人口")}>総人口</button>
+                <button className="Theme2" onClick={() => setnowTheme("年少人口")}>年少人口</button>
+                <button className="Theme3" onClick={() => setnowTheme("生産年齢人口")}>生産年齢人口</button>
+                <button className="Theme4" onClick={() => setnowTheme("老年人口")}>老年人口</button>
             </div>
 
         </div>
