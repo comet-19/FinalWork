@@ -4,7 +4,7 @@ import { LineChart, XAxis, YAxis, CartesianGrid, Line } from "recharts";
 function CreateCharts(props:any) {
     return (
         <div>
-            <LineChart width={500} height={300} data={props.data}>
+            <LineChart width={1000} height={300} data={props.data}>
                 <XAxis dataKey="year" />
                 <YAxis />
                 <CartesianGrid stroke="#eee" strokeDasharray="5 5" />

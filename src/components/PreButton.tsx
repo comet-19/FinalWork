@@ -75,7 +75,14 @@ function PreButton() {
     function screenview() {
         if (nowstate === "loading") {
             return (
-                <h1>Loading</h1>
+                <div>
+                    <h1>Loading</h1>
+                    <section className="container">
+                        <div className="loader-1"></div>
+                    </section>
+
+                </div>
+
             );
         }
         else {
