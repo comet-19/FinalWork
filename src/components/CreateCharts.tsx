@@ -3,7 +3,7 @@ import { LineChart, XAxis, YAxis, CartesianGrid, Line, Legend, Tooltip } from "r
 
 function CreateCharts(props:any) {
     return (
-        <div>
+        <div className="Chart">
             <LineChart width={1000} height={300} data={props.data}>
                 <XAxis dataKey="year" />
                 <YAxis />
