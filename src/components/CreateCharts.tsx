@@ -1,4 +1,4 @@
-import { LineChart, XAxis, YAxis, CartesianGrid, Line } from "recharts";
+import { LineChart, XAxis, YAxis, CartesianGrid, Line, Legend, Tooltip } from "recharts";
 
 
 function CreateCharts(props:any) {
@@ -8,6 +8,8 @@ function CreateCharts(props:any) {
                 <XAxis dataKey="year" />
                 <YAxis />
                 <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+                <Legend />
+                <Tooltip />
                 <Line type="monotone" dataKey="value" stroke="#8884d8" />
             </LineChart>
         </div>

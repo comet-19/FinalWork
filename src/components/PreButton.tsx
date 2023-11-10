@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import OneButton from "./OneButton";
 import CreateCharts from "./CreateCharts";
+import { ALL } from "dns";
 
 function PreButton() {
 
@@ -50,10 +51,10 @@ function PreButton() {
                 const tmpdata = await axios.get(`https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${i}`, { headers: { "X-API-KEY": "FsEmsGAEGJ4kkz69wBsMpSMNe6VgZhMYeWSqd3fT" } });
                 if (tmpdata) {
                     PrePopdatas.push(tmpdata.data.result.data);
-                    tmpALLPop.push(tmpdata.data.result.data[0]);
-                    tmpYoungPop.push(tmpdata.data.result.data[1]);
-                    tmpWorkPop.push(tmpdata.data.result.data[2]);
-                    tmpOldPop.push(tmpdata.data.result.data[3]);
+                    tmpALLPop.push({ value: tmpdata.data.result.data[0], check: false });
+                    tmpYoungPop.push({ value: tmpdata.data.result.data[1], check: false });
+                    tmpWorkPop.push({ value: tmpdata.data.result.data[2], check: false });
+                    tmpOldPop.push({ value: tmpdata.data.result.data[3], check: false });
                 }
             }
 
@@ -61,8 +62,8 @@ function PreButton() {
             setYoungPop(tmpYoungPop);
             setWorkPop(tmpWorkPop);
             setOldPop(tmpOldPop);
-
-            setstate("complete")
+            setstate("complete");
+            console.log(ALLPop);
 
 
         }
@@ -71,6 +72,24 @@ function PreButton() {
 
 
     }, [])
+
+    function changebool(clickedindex: any) {
+        setALLPop(
+            ALLPop.map((ALLpop, index) => (index == clickedindex ? { value: ALLpop.value, check: !ALLpop.check } : ALLpop))
+        )
+
+        setYoungPop(
+            YoungPop.map((Youngpop, index) => (index == clickedindex ? { value: Youngpop.value, check: !Youngpop.check } : Youngpop))
+        )
+
+        setWorkPop(
+            WorkPop.map((Workpop, index) => (index == clickedindex ? { value: Workpop.value, check: !Workpop.check } : Workpop))
+        )
+
+        setOldPop(
+            OldPop.map((Oldpop, index) => (index == clickedindex ? { value: Oldpop.value, check: !Oldpop.check } : Oldpop))
+        )
+    }
 
     function screenview() {
         if (nowstate === "loading") {
@@ -96,7 +115,7 @@ function PreButton() {
                                 {
                                     PreNamedatas.map((PreName, index) => {
                                         return (
-                                            <OneButton prename={PreName} key={index} />
+                                            <OneButton prename={PreName} key={index} onChange={() => changebool(index)} />
                                         )
                                     })
                                 }
@@ -104,12 +123,12 @@ function PreButton() {
                             <div>
                                 {
                                     ALLPop.map((ALLpop) => {
-                                        console.log(ALLpop);
-                                        console.log(ALLpop.data);
-                                        console.log(ALLpop.data);
-                                        return (
-                                            <CreateCharts data={ALLpop.data} />
-                                        )
+                                        if (ALLpop["check"]) {
+                                            return (
+                                                <CreateCharts data={ALLpop["value"].data} />
+                                            )
+                                        }
+
                                     })
                                 }
                             </div>
@@ -143,12 +162,12 @@ function PreButton() {
                             <div>
                                 {
                                     YoungPop.map((Youngpop) => {
-                                        console.log(Youngpop);
-                                        console.log(Youngpop.data);
-                                        console.log(Youngpop.data);
-                                        return (
-                                            <CreateCharts data={Youngpop.data} />
-                                        )
+                                        if (Youngpop["check"]) {
+                                            return (
+                                                <CreateCharts data={Youngpop["value"].data} />
+                                            )
+                                        }
+
                                     })
                                 }
                             </div>
@@ -182,12 +201,12 @@ function PreButton() {
                             <div>
                                 {
                                     WorkPop.map((Workpop) => {
-                                        console.log(Workpop);
-                                        console.log(Workpop.data);
-                                        console.log(Workpop.data);
-                                        return (
-                                            <CreateCharts data={Workpop.data} />
-                                        )
+                                        if (Workpop["check"]) {
+                                            return (
+                                                <CreateCharts data={Workpop["value"].data} />
+                                            )
+                                        }
+
                                     })
                                 }
                             </div>
@@ -221,12 +240,12 @@ function PreButton() {
                             <div>
                                 {
                                     OldPop.map((Oldpop) => {
-                                        console.log(Oldpop);
-                                        console.log(Oldpop.data);
-                                        console.log(Oldpop.data);
-                                        return (
-                                            <CreateCharts data={Oldpop.data} />
-                                        )
+                                        if (Oldpop["check"]) {
+                                            return (
+                                                <CreateCharts data={Oldpop["value"].data} />
+                                            )
+                                        }
+
                                     })
                                 }
                             </div>
