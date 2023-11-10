@@ -3,7 +3,6 @@ import axios from "axios";
 import OneButton from "./OneButton";
 import CreateCharts from "./CreateCharts";
 import { ALL } from "dns";
-
 function PreButton() {
 
     let Predatas;
@@ -44,6 +43,7 @@ function PreButton() {
 
 
 
+
     useEffect(() => {
 
         async function GetPopulation() {
@@ -76,19 +76,21 @@ function PreButton() {
     function changebool(clickedindex: any) {
         setALLPop(
             ALLPop.map((ALLpop, index) => (index == clickedindex ? { value: ALLpop.value, check: !ALLpop.check } : ALLpop))
-        )
+        );
 
         setYoungPop(
             YoungPop.map((Youngpop, index) => (index == clickedindex ? { value: Youngpop.value, check: !Youngpop.check } : Youngpop))
-        )
+        );
 
         setWorkPop(
             WorkPop.map((Workpop, index) => (index == clickedindex ? { value: Workpop.value, check: !Workpop.check } : Workpop))
-        )
+        );
 
         setOldPop(
             OldPop.map((Oldpop, index) => (index == clickedindex ? { value: Oldpop.value, check: !Oldpop.check } : Oldpop))
-        )
+        );
+
+        console.log(ALLPop);
     }
 
     function screenview() {
@@ -122,10 +124,10 @@ function PreButton() {
                             </div>
                             <div>
                                 {
-                                    ALLPop.map((ALLpop) => {
+                                    ALLPop.map((ALLpop,index) => {
                                         if (ALLpop["check"]) {
                                             return (
-                                                <CreateCharts data={ALLpop["value"].data} />
+                                                <CreateCharts data={ALLpop["value"].data} key={index}/>
                                             )
                                         }
 
@@ -154,17 +156,17 @@ function PreButton() {
                                 {
                                     PreNamedatas.map((PreName, index) => {
                                         return (
-                                            <OneButton prename={PreName} key={index} />
+                                            <OneButton prename={PreName} key={index} onChange={() => changebool(index)}/>
                                         )
                                     })
                                 }
                             </div>
                             <div>
                                 {
-                                    YoungPop.map((Youngpop) => {
+                                    YoungPop.map((Youngpop,index) => {
                                         if (Youngpop["check"]) {
                                             return (
-                                                <CreateCharts data={Youngpop["value"].data} />
+                                                <CreateCharts data={Youngpop["value"].data} key={index} />
                                             )
                                         }
 
@@ -193,17 +195,17 @@ function PreButton() {
                                 {
                                     PreNamedatas.map((PreName, index) => {
                                         return (
-                                            <OneButton prename={PreName} key={index} />
+                                            <OneButton prename={PreName} key={index} onChange={() => changebool(index)}/>
                                         )
                                     })
                                 }
                             </div>
                             <div>
                                 {
-                                    WorkPop.map((Workpop) => {
+                                    WorkPop.map((Workpop,index) => {
                                         if (Workpop["check"]) {
                                             return (
-                                                <CreateCharts data={Workpop["value"].data} />
+                                                <CreateCharts data={Workpop["value"].data} key={index} />
                                             )
                                         }
 
@@ -232,17 +234,17 @@ function PreButton() {
                                 {
                                     PreNamedatas.map((PreName, index) => {
                                         return (
-                                            <OneButton prename={PreName} key={index} />
+                                            <OneButton prename={PreName} key={index} onChange={() => changebool(index)}/>
                                         )
                                     })
                                 }
                             </div>
                             <div>
                                 {
-                                    OldPop.map((Oldpop) => {
+                                    OldPop.map((Oldpop,index) => {
                                         if (Oldpop["check"]) {
                                             return (
-                                                <CreateCharts data={Oldpop["value"].data} />
+                                                <CreateCharts data={Oldpop["value"].data} key={index}/>
                                             )
                                         }
 

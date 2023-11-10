@@ -2,7 +2,7 @@
 function OneButton (props:any) {
     return (
         <div className="PreButton">
-            <input type="checkbox" onChange={props.onChange}/><span>{props.prename}</span>
+            <input type="checkbox" onChange={props.onChange} key={props.index}/><span>{props.prename}</span>
         </div>
     )
 }
